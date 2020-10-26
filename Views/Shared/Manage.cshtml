@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Professional Poker Asia</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <!-- jQuery CDN -->
+    <script src="~/Scripts/jquery-1.12.0.min.js"></script>
+    <script src="~/Scripts/jquery-3.5.1.js"></script>
+    <script src="~/Scripts/jquery.dataTables.min.js"></script>
+    <link href="~/Content/jquery.dataTables.min.css" rel="stylesheet" />
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });</script>
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Sidebar Holder -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>Professional Poker Asia</h3>
+                <strong>APP</strong>
+            </div>
+            <ul class="list-unstyled components">
+                <li class="active">
+                    <a href="#customerSubmenu" data-toggle="collapse" aria-expanded="false">
+                        <i class="glyphicon glyphicon-king"></i>
+                        Customer
+                    </a>
+                    <ul class="collapse list-unstyled" id="customerSubmenu">
+                        <li><a href="#">Category</a></li>
+                        <li><a href="#">Club</a></li>
+                        <li><a href="#">Service Package</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#newsSubmenu" data-toggle="collapse" aria-expanded="false">
+                        <i class="glyphicon glyphicon-edit"></i>
+                        News
+                    </a>
+                    <ul class="collapse list-unstyled" id="newsSubmenu">
+                        <li><a href="#">Post</a></li>
+                        <li><a href="#">List News</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#securitySubmenu" data-toggle="collapse" aria-expanded="false">
+                        <i class="glyphicon glyphicon-user"></i>
+                        Security
+                    </a>
+                    <ul class="collapse list-unstyled" id="securitySubmenu">
+                        <li><a href="#">User</a></li>
+                        <li><a href="#">Set Role</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#settingSubmenu" data-toggle="collapse" aria-expanded="false">
+                        <i class="glyphicon glyphicon-cog"></i>
+                        Setting
+                    </a>
+                    <ul class="collapse list-unstyled" id="settingSubmenu">
+                        <li><a href="~/country">Country</a></li>
+                        <li><a href="~/province">Province</a></li>
+                        <li><a href="~/ward">Ward</a></li>
+                        <li><a href="~/module">Module</a></li>
+                        <li><a href="~/page">Page</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="glyphicon glyphicon-paperclip"></i>
+                        FAQ
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="glyphicon glyphicon-send"></i>
+                        Contact
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="glyphicon glyphicon-briefcase"></i>
+                        About
+                    </a>
+                </li>
+            </ul>
+
+            <ul class="list-unstyled CTAs">
+                <li><a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a></li>
+                <li><a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a></li>
+            </ul>
+        </nav>
+        <div id="content">
+            <!-- Page Content Holder -->
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <table border="0">
+                            <tr>
+                                <td class="padding-right">
+                                    <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+                                        <i class="glyphicon glyphicon-align-left"></i>
+                                        <span>Menu</span>
+                                    </button>
+                                </td>
+                                <td>
+                                    <div class="input-group" id="adv-search">
+                                        <input type="text" class="form-control" placeholder="Search..." />
+                                        <div class="input-group-btn">
+                                            <div class="btn-group" role="group">
+                                                <button type="button" class="btn btn-info"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="#">News</a></li>
+                            <li><a href="#">Customer</a></li>
+                            <li><a href="#">Security</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- Page Content -->
+            <div class="bodycontent">
+                @RenderBody()
+            </div>
+            <!-- Page Content Footer -->
+            <div class="bodyfooter">
+                <p>&copy; @DateTime.Now.Year - <a href="propoker.asia">propoker.asia</a> </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

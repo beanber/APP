@@ -1,0 +1,75 @@
+﻿@model IEnumerable<APP.Models.Sys.sysCountry>
+
+@{
+    ViewBag.Title = "Country";
+    Layout = "~/Views/Shared/Manage.cshtml";
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+        var selected = [];
+        $('#listRecord').DataTable({
+            ajax: {
+                url: "Country/GetDataResultJson",
+                type: "GET",
+                datatype: "json",
+                dataSrc: "data"
+            },
+            "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+            "rowCallback": function (row, data) {
+                if ($.inArray(data.DT_RowId, selected) !== -1) {
+                    $(row).addClass('selected');
+                }
+            },
+            columns: [
+                { data: "Code" },
+                { data: "Name" },
+                { data: "ZipCode" },
+                { data: "Order" },
+                {
+                    data: "ID",
+                    render: function (data) {
+                        return '<a href="country/edit/' + data + '">Edit</a>' + " | " +
+                            '<a href="#" onclick="confirm("Bạn có chắc chắn không?")">Delete</a>'
+                    }
+                }
+            ]
+        });
+
+        $('#listRecord tbody').on('click', 'tr', function () {
+            var id = this.id;
+            var index = $.inArray(id, selected);
+
+            if (index === -1) {
+                selected.push(id);
+            } else {
+                selected.splice(index, 1);
+            }
+
+            $(this).toggleClass('selected');
+        });
+
+    });
+</script>
+<div class="divleft70">
+    <span class="toppage-title">
+        Country
+    </span>
+</div>
+<div class="divright toppage-divright">
+    <span class="btn btn-default">
+        <i class="glyphicon glyphicon-plus"></i>
+        @Html.ActionLink("Create", "Create")
+    </span>
+</div>
+<hr />
+<table id="listRecord" class="display table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th class="col-md-1">Code</th>
+            <th class="col-md-2">Name</th>
+            <th class="col-md-1">ZipCode</th>
+            <th class="col-md-1">Order</th>
+            <th class="col-md-1">Manage</th>
+        </tr>
+    </thead>
+</table>

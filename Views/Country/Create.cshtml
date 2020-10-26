@@ -1,0 +1,78 @@
+﻿@model APP.Models.Sys.sysCountry
+
+@{
+    ViewBag.Title = "Create Country";
+    Layout = "~/Views/Shared/Manage.cshtml";
+}
+
+<div class="divleft70">
+    <span class="toppage-title">Create Country</span>
+</div>
+<div class="divright toppage-divright">
+    <span class="btn btn-default">
+        @Html.ActionLink("Back to List", "Index")
+    </span>
+</div>
+<hr />
+@using (Html.BeginForm("Create", "Country", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="divgroup">
+        <div class="divleft60">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Code, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Code, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Code, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.ZipCode, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ZipCode, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ZipCode, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Order, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Order, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Order, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="divright">
+            <div class="col-md-10">
+                Avata                
+                <input type="file" id="file" class="form-control" />
+            </div>
+            <div class="col-md-10">
+                <div class="divspacetop">
+                    <textarea class="form-control" id="Description" placeholder="Description" rows="5"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="divgroup">
+        <input type="submit" id="btnsubmit" value="Create Country" class="btn btn-primary" onclick="confirm('Are you sure you want save this info?')" />
+        <script type="text/javascript">
+            $(function () {
+                $("#btnsubmit").click(function (e) {
+                    var name = document.getElementById('Name');
+                    if (name.value == '') {
+                        alert('Name is not null. Please try again!');
+                        }
+                    })
+                })
+        </script>
+    </div>
+}

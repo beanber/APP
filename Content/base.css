@@ -1,0 +1,106 @@
+﻿.bodycontent
+{
+    padding: 2em;
+    min-height: 70vh;
+}
+.bodyfooter {
+    padding: 2em;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+.toppage-title {
+    font-size: x-large;
+}
+.divtablecell{
+    display:table-cell;
+}
+.padding-right {
+    padding-right: 10px;
+}
+.divgroup{
+    overflow:auto;
+}
+.divspacetop{
+    padding-top: 2em;
+}
+.divleft20{
+    float:left;
+    overflow:auto;
+    width: 20%;
+    padding-right: 2em;
+}
+.divleft50 {
+    float: left;
+    overflow: auto;
+    width: 50%;
+    padding-right: 2em;
+}
+.divleft60 {
+    float: left;
+    overflow: auto;
+    width: 60%;
+    padding-right: 2em;
+}
+.divleft70 {
+    float: left;
+    overflow: auto;
+    width: 70%;
+    padding-right: 2em;
+}
+.divright {
+    overflow: auto;
+    width: auto;
+    padding-left: 2em;
+    padding-top: 0;
+}
+.toppage-divright
+{
+    text-align:right;
+}
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+@media (max-width: 768px) {
+    #adv-search {
+        width: 200px;
+        margin: 0 auto;
+    }
+    .bodycontent {
+        padding: 0.5em;
+    }
+    .bodyfooter {
+        padding: 0.5em;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    .divspacetop {
+        padding-top: 1em;
+    }
+    .divleft20 {
+        overflow: auto;
+        width: 100%;
+        padding-right: 0;
+    }
+    .divleft50 {
+        overflow: auto;
+        width: 100%;
+        padding-right: 0;
+    }
+    .divleft60 {
+        overflow: auto;
+        width: 100%;
+        padding-right: 0;
+    }
+    .divleft70 {
+        overflow: auto;
+        width: 100%;
+        padding-right: 0;
+    }
+    .divright {
+        overflow: auto;
+        width: 100%;
+        padding-left: 0;
+        padding-top: 1em;
+    }
+    .toppage-divright {
+        text-align: left;
+    }
+}
